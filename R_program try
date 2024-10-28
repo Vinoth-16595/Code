@@ -1,0 +1,715 @@
+#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
+install.packages("dplyr") #(This package will make data manipulation easier)
+install.packages("odbc") #(This is used to connect the databae )
+install.packages("scales")
+install.packages("R6") #(This is used for OOPS in R)
+install.packages("readr") #(This is uesd to load the excle sheet)
+install.packages("stringr")#(This is used to manipulat and remove the , and lower and upper case )
+install.packages("ggplot2")
+library(ggplot2)
+library(stringr)
+library(readr)
+library(R6)
+library(scales)
+library(dplyr)
+library(odbc)
+
+
+
+str_length()
+str_to_lower()
+str_to_upper()
+str_remove()
+str_c()#this is used to convert multiple string into single string
+
+tables<- data.frame( Name= c("vino,th","venk,atsh","mohan,raj","thinesh","visvak,survash","siva,sankar","kishna,kumar"),
+                      Age = c(28,28,27,29,9,23,20),
+                      Dis=c("Analist","Civil eng","Procurement","Electrical","playing","Accountant","student")
+)
+tableslist <- list(Name= c("vino","venk","mohan","thinesh","visvak","siva","kishna"),
+                   Age = c(28,28,27,29,9,23,20),
+                   Dis=c("Analist","Civil eng","Procurement","Electrical","playing","Accountant","student"))
+
+tablesmat <- matrix(tables)
+#######################################################################
+# Basic calculation
+
+ggplot(tables,aes(Age,Name,size=4,color="red"))+geom_text(label=rownames(tables))
+ggplot(tables,aes(Age,Name,size=4,color="fam",fill="black"))+geom_point()
+ggplot(tables,aes(Age,Name,size=4,color="fam"))+geom_jitter()
+
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + geom_point(alpha = 0.5)
+
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +geom_jitter(alpha = 0.5,width=0.1)
+
+ggplot(mtcars,aes(mpg,size=0.1)) +geom_histogram()
+ggplot(mtcars, aes(mpg,fill="fam")) +  geom_histogram(binwidth = 1, position = "dodge")
+
+
+######### GGPLOT in Youtube
+head(iris)
+ggplot(iris)
+ggplot(iris,aes(Sepal.Length,Sepal.Width))
+ggplot(iris,aes(Sepal.Length,Sepal.Width))+geom_point(color='violet')
+ggplot(iris,aes(Sepal.Length,Sepal.Width,color=Species))+geom_point()
+ggplot(iris,aes(Sepal.Length,Sepal.Width,color=Species,size=1))+geom_point() #it will mention the size on side while we give it on aes
+ggplot(iris,aes(Sepal.Length,Sepal.Width,color=Species))+geom_point(size=2)#it will not mention the size on side while we give it on geom
+ggplot(iris,aes(Sepal.Length,Sepal.Width,color=Species,size=Species))+geom_point()
+ggplot(iris,aes(Sepal.Length,Sepal.Width,shape=Species,color=Species))+geom_point()
+ggplot(iris,aes(Sepal.Length,Sepal.Width,color=Species))+geom_point()+scale_color_brewer() #scale is use to define the difference from min value to max value
+ggplot(iris,aes(Sepal.Length,Sepal.Width))+geom_point(aes(color=Species))+scale_color_brewer(palette = 'set') #scale is use to define the difference from min to max
+ggplot(iris,aes(Sepal.Length,Sepal.Width))+geom_point(aes(color=Species)) + facet_wrap(vars(Species),nrow = 2) #facet_wrap is use to seperate single chart to multiple chart
+ggplot(iris,aes(Sepal.Length,Sepal.Width))+geom_point(aes(color=Species)) + facet_wrap(vars(Species),nrow = 2) +theme_dark() #this is use to add a theam for background
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+grepl("o",tables$Name)
+gsub("o","g",tables$Name,)
+
+class(tableslist)
+
+lapply(tableslist, class)
+lapply(tableslist,nchar)
+
+
+
+Name= c("vino","venk","mohan","thinesh","visvak","siva","kishna")
+lapply(Name,nchar)
+nchar(Name)
+
+str_remove(tables$Name,",")
+str_remove(tables$Name,",")
+class(tables)
+typeof(tables)
+summary(tables)
+mean(tables$Age)
+median(tables$Age)
+
+lapply(tables, class)
+length(tables$Age)
+length(tableslist$Age)
+select(tables,Name)
+
+length(tables)
+x<- c("user","vino")
+length(x)
+
+
+#DPLYR package
+
+select(tables,Name)
+arrange(tables,Age)
+mutate(tables,sal=c(10000,12000,14000,16000,8000,22000,23000))
+rename(tables,Names=Name)
+select(tables,Name,Age)%>% arrange(Age)
+
+getwd()
+write.csv(tables,"Tables.csv",row.names = FALSE)
+read.csv("Tables.csv")
+read_csv("Tables.csv")
+? read_excel()
+Tables
+Book1 <- read_excel("~/Book1.xlsx",sheet = 2)
+select(Book1,Id)
+mu<-mutate(Book1,Non=c(1:75))
+arrange(mu,WellboreContainerTypeId)
+rename(mu,No=Non)
+#########################################################
+
+#Relation operater
+class(tables) %in% class(tableslist)
+
+length(tables) == length(tables)
+
+length(tables$Name) > length(tableslist$Name)
+
+length(tables$Name[1])
+
+############################################################
+
+# While loop
+#break will stop the loop when the condition is satisify
+rpm<- 20
+while (rpm>10) {
+print("slow down!!")
+  break
+}
+ # next will skip the line
+while (rpm>10) {
+  print("slow down!!")
+  next
+}
+
+#################################################
+#For loop
+
+for (a in tableslist) {
+  print(class(a))
+
+}
+
+for (i in 1:length(tables$Age)) {
+  print(i)
+
+}
+
+a<-c(1,2,3,4,5,6)
+for (i in 1: length(a)) {
+  print(i)
+
+}
+
+
+for (j in tables) {
+  print(j)
+
+}
+
+for (i in 1: length(tables)) {
+  print(i)
+
+}
+
+
+for (i in tablesmat) {
+  print(i)
+
+}
+
+for (i in 1: length(tablesmat$age)) {
+  print(i)
+
+}
+
+for (i in 1: nrow(tablesmat)) {
+  print(i)
+
+}
+
+
+################################################
+
+#Function
+a<-2
+b<-2
+vino <- function(){
+  print("Hello")
+}
+vino()
+
+vino <- function(){
+  print(a*b)
+}
+vino()
+
+vino <- function(name){
+  print(paste0(name, " ", "My friend"))
+}
+
+vino("vinoth")
+
+a1 <- function(a,b){
+  print(a+b)
+  print(a-b)
+  print(a*b)
+  print(a==b)
+}
+a1(2,2)
+
+
+a2 <- function(a,b=3){
+  print(a+b)
+  print(a-b)
+  print(a*b)
+  print(a==b)
+}
+a2(2)
+
+
+a <- function(a,b){
+  print(a+b)
+  print(a-b)
+  print(a*b)
+  print(a==b)
+}
+a1(2)
+
+
+n<-c()
+for (c in 1:length(Name)) {
+  n[c]<-nchar(Name[c])
+
+}
+n
+
+
+data<-mtcars
+
+mpg <- function(mpg){
+  if( mpg > 30){
+    return("High speed")
+  }else if(mpg > 20){
+    return("Medium Fpeed")
+  } else {print("Too SLOW")}
+}
+
+lapply(data$mpg, mpg)
+
+
+
+
+re <- function(x){
+  return(x)
+}
+re(3)
+re("vino")
+re(T)
+#######    Dout #######3
+re1 <- function(x=1){
+  if(x>0){
+  result<- x + re1(x-1)
+  print(result)
+}}
+re1(2,3)
+
+
+
+
+#ODBC Connection
+
+con <- dbConnect(odbc::odbc(),"PRTS")
+
+wc<-dbGetQuery(conn = con,"select * from wellbore ")
+
+wc1<-dbGetQuery(conn = con,"select * from WBContainer_Curve_Mapping_View where Id = 'B5A65AB3-E197-493F-B519-60FE50B389F3' ")
+
+wc2<-dbGetQuery(conn = con,"select * from witsml ")
+
+is.na(wc1)
+
+dbListTables(con)
+copy_to(con,mu)
+
+is.numeric(tables$Name)
+
+?db_list_tables
+wc$watchjobconfig
+mean(wc$uid)
+class(wc$uid)
+is.na(wc$parentWellbore)
+
+wc$uidWell
+
+
+#######################################
+#R6 Package
+
+# Public method can access using self$...
+# Private method can access uing private$...
+# public Parent class can be access usin super$,,
+
+
+
+
+vino <- R6::R6Class("vino",
+           public=
+             list(Name = "",
+                  Id="",
+                  Age="",
+                  initialize = function(Name="",Id="",Age=""){
+                    Name<-Name
+                    Id<-Id
+                    Age<-Age
+                  }
+
+      )
+           )
+vino$new("vinoth","001","29")
+####################################3
+
+Addition <-R6:: R6Class(
+  "Addition",
+  public = list(
+    sum=0,
+    add = function(x=1){
+      self$sum <- self$sum + x
+      return(self)
+    }
+  )
+
+)
+Additio
+ Addition$new()
+x<- Addition$new()
+x$add(10)$add(10)$sum
+x$sum
+x$add()
+a<-x$add()
+x$sum#it will return 0
+x$add(2)
+x$sum
+
+Preson <-R6::R6Class(
+  "Person",
+  public = list(
+    Name="null",
+    age=NA,
+    initialize = function(Name,age){
+      self$Name<-Name
+      self$age<-age
+      add()
+    },
+    add = function(){
+  self$age  <-  1+3
+    }
+  )
+)
+
+y<-Preson$new("vino",30)
+#####################
+#https://youtu.be/NXmlqK2LxWw?feature=shared
+BanckAccount <- R6::R6Class(
+  "BanckAccount",
+  public = list(
+    balance = 0,
+    deposite = function(x){
+      self$balance <- self$balance + x
+      return(self)
+    },
+    withdraw = function(x){
+
+      self$balance <- self$balance - x
+      return(self)
+
+    }
+  )
+)
+
+x<- BanckAccount$new()
+
+x$deposite(30)
+x$deposite(25000)
+x$deposite(5)
+x$deposite(5)
+x$deposite(10000)
+x$withdraw(10000)
+BanckAccount$class
+BanckAccount$classname
+x<-BanckAccount$new()
+y<-x$deposite(10)
+y
+x$deposite(100)$withdraw(50)
+x$balance
+######################################################
+#Initialize
+BanckAccount <- R6::R6Class(
+  "BanckAccount",
+  public = list(
+    pwd =NULL ,
+    balance = 0,
+    initialize = function(){
+      print("Hello World")
+    },
+    deposite = function(x){
+      self$balance <- self$balance + x
+      return(self)
+    },
+    withdraw = function(x){
+
+      self$balance <- self$balance - x
+      return(self)
+
+    }
+  )
+)
+x<- BanckAccount$new()
+##########################################################
+
+BanckAccount <- R6::R6Class(
+  "BanckAccount",
+  public = list(
+    pwd =NULL ,
+    balance = 0,
+    initialize = function(pwd){
+      self$pwd <- pwd
+    },
+    print = function(...){
+      cat("Balance",scales::dollar(self$balance))
+      return(self)
+    },
+
+    deposite = function(x,pwd){
+      stopifnot(pwd == self$pwd)
+      self$balance <- self$balance + x
+      return(self)
+    },
+    withdraw = function(x,pwd){
+      stopifnot(pwd == self$pwd)
+      self$balance <- self$balance - x
+      return(self)
+
+    }
+  )
+)
+
+
+#################################################################################
+Measurement <-R6:: R6Class(
+  "Measurement",
+  public= list(
+
+    unitconvention =  function(){
+      if(from=="M" && to=="F"){
+        print(paste(num*3.28," Feet"))
+      } else if(from=="F" && to=="M"){
+        print(paste(num/3.28,"Meter"))
+      }else{print("The value entered is not correct please make sure")}
+
+    }
+  )
+)
+#############################################################################
+
+
+x<-BanckAccount$new("vino")
+x$deposite(100,"vino")
+x$balance
+x$withdraw(50,"vino")
+x$balance
+
+
+
+Math <- R6::R6Class(
+  "Math",
+  public = list(
+    add=0,
+    sub=0,
+    mul=0,
+    initialize = function(){
+      print("Welcom to math")
+    } ,
+    Addition = function(a,b){
+      self$add <- a + b
+    },
+    Subraction = function(a,b){
+      self$sub <- a - b
+    },
+    Multplication = function(a,b){
+      self$mul <- a * b
+    }
+  )
+)
+
+x<- Math$new()
+x$Addition(2,2)
+x$Subraction(5,2)
+x$Multplication(2,5)
+
+x$add
+x$sub
+x$mul
+
+
+
+
+
+
+x<-Math$new()
+Math$new()
+x$Addition(2,2)
+x$add
+
+#################################################################
+#Inheitance and Over ride
+ParentClass <- R6::R6Class(
+  "ParentClass",
+  public = list(
+    Pname = function(){
+      message("Veeriya","Malliga")
+    }
+  )
+)
+
+ChildClass <- R6::R6Class(
+  "ChildClass",
+  inherit = ParentClass,
+  public = list(
+    cname =function(){
+      message("Vino","krishna")
+    },
+    csname =function(){
+      message("Siva" , "Kishna")
+    self$cname()
+    super$Pname()
+      }
+
+  )
+)
+
+ci <- ChildClass$new()
+ci$cname()
+
+ci$csname()
+
+ci$Pname()
+
+P_Propeties <- R6::R6Class(
+  "P_Propeties",
+  public = list(
+    pop = function(){
+
+    }
+  )
+
+)
+
+#Dr vijaya lakshimi 14\25 1st street naga arjuna nagar ranga raja puram kodambakkam
+#flat name sai niranthara
+
+
+
+Class <- R6::R6Class(
+  "Class",
+  public = list(
+    a1 = function(){
+      message(a+b)
+    }
+  )
+)
+Class$new()
+Class$a1
+
+
+v1<- c(1,2,3,4,5)
+print(v1)
+v2<- c(6:10)
+print(v2)
+vec <- v1+v2
+x <- c(1, 2, 3, 4, 5)
+
+# Find the length of the vector
+length(x)
+# Create a character vector
+y <- c("apple", "banana", "cherry")
+
+# Find the length of the vector
+length(y)
+# Create a logical vector
+z <- c(TRUE, FALSE, TRUE, TRUE)
+
+# Find the length of the vector
+length(z)
+print(vec)
+sum(vec)
+prod(vec)
+mean(vec)
+us<-readline(prompt = "Pleace any thing : ")
+us2<-(as.character(us))
+print(us2)
+
+var5 = readline(prompt = "Enter your name : ")
+print(var5)
+# R program to illustrate
+# taking input from the user
+
+# taking input using scan()
+x = scan()
+# print the inputted values
+print(x)
+
+# R program to illustrate
+# taking input from the user
+
+# double input using scan()
+d = scan(what = double())
+
+# string input using 'scan()'
+s = scan(what = " ")
+
+# character input using 'scan()'
+c = scan(what = character())
+
+# print the inputted values
+print(d) # double
+print(s) # string
+print(c) # character
+sd(2:5)
+min(x)
+max(x)
+#Write an R Program for “Hello Geeks”.Write an R Program to Add Two Vectors
+v1<- c(1,2,3,4,5)
+v2<- c(6:10)
+vec <- v1+v2
+print(vec)
+#Find the Sum, Mean and Product of the Vector in R Programming
+sum(vec)
+prod(vec)
+mean(vec)
+#Create an R Program to Take Input From the User
+
+us<-readline(prompt = "Pleace enter any thing : ")
+us2<-(as.character(us))
+print(us2)
+#How to Generate Random Numbers from Standard Distributions in R
+
+sd(2:5)
+
+#Create an R Program to Find the Minimum and Maximum
+min(x)
+max(x)
+
+#R Program to Sort a Vector
+# Creating a vector
+z <- c(7, 4, 3, 9, 1.2, -4, -5, -8, 6, NA)
+
+# Calling sort() function
+sort(z)
+
+sort(x)
+
+#How to Find the Factorial of a Number
+
+
+factorial(3)
+
+# take input from the user
+num = as.integer(readline(prompt="Enter a number: "))
+factorial = 1
+# check is the number is negative or possitive
+if(num < 0) {
+  print("Not possible for negative numbers")
+} else if(num == 0) {
+  print("The factorial of 0 is 1")
+} else {
+  for(i in 1:num) {
+    factorial = factorial * i
+  }
+  print(paste("The factorial of", num ,"is",factorial))
+}
+
+#How to create R Multiplication Table
+
+
+for ( i in 1:10){
+  print(paste0("2 * ", i, "=" , (2*i)))
+
+}
+
+matrix(1:3,nrow = 2,ncol = 3)
+
+

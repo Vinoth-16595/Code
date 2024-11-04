@@ -1,0 +1,556 @@
+##a=10
+##b=15
+##c=a+b
+##print(c)
+##
+##a="10"
+##b="10"
+##c=a+b
+##print(c)
+
+##a=int("20")
+##b=int("30")
+##c=a=b
+##print(c)
+
+#a=int("20")
+##b=int("30")
+##c=a+b
+##print(c)
+##
+##a=input()
+##print(a)
+
+##a=int(input())
+##b=int(input())
+##c=a+b
+##print(c)
+
+
+##a=input()
+##b=input()
+##print("My name is:", a)
+##print("My age is:", b)
+
+##a=int(input())
+##b=int(input())
+##c=int(input())
+##d=a*b*c
+##e=a+b+c
+##f=d/e
+##print(d)
+##print(e)
+##print(f)
+##if(True):
+##    print("Yes")
+##else:
+##    print("no")
+
+# numbers = [12, 17, 28, 19, 11]
+# for num in numbers:
+#     if(num%2!=0):
+#         print(num)
+####################################################
+#Odd or Even
+# pls_enter =int(input())
+# if(pls_enter%2==0):
+#     print("Its Even number")
+# else:
+#     print("Its Odd")
+###################################################
+# Elseif
+# mark =int(input())
+# if(mark<35):
+#     print("Poor student need extra class")
+# elif(mark>35 and mark<70):
+#     print("Average student")
+# else:
+#     print("Good studentr")
+####################################################################
+# num1 =int(input("Enter the 1st value : "))
+# num2 =int(input("Enter the 2nd value : "))
+# oper = input("Please say the calculation want Add,Sub,Mul :")
+# if(oper=="Add"):
+#     print(num1 * num2)
+# elif(oper == "Sub"):
+#     print(num1-num2)
+# elif(oper=="Mul"):
+#     print(num1*num2)
+# else:
+#     print("Please enter the correct oper")
+
+################################################################
+# precent = int(input("Enter your percentage : "))
+# if(precent > 70):
+#     name = input("Enter your name : ")
+#     dep =input("Department you like to choose : ")
+#     loc = input("Enter your location : ")
+#     print("Hai",name,"You are elgible")
+# else: print("Not elgible")
+#############################################################
+# salary = int(input("Enter your salary amount : "))
+# age = int(input("Enter your age : "))
+# if(salary>=20000 or age<=25):
+#     lone_amu = int(input("Plese enter you lone amount need : "))
+#     if(lone_amu <= 50000):
+#         print("Hey you are elgible")
+#     else: print("Max lone amount is 50000rs")
+# else: print("You are not elgible")
+##############################################################
+#For Loop
+ #num1=int(input("Entr 1st value"))
+ #num2= int(input("Enater 2nd valur"))
+# for i in range(num1,num2):
+#     print(i)
+#############################################################3
+# num1=int(input("Entr 1st value"))
+# num2= int(input("Enater 2nd valur"))
+# count = 0
+# for i in range(num1,num2):
+#     if(i%2==0):
+#         print(i)
+#         count=count+1
+# print(count)
+#########################################################
+#append
+# a=[]
+# print("Enter the 5 number")
+# for i in range(5):
+#     num=int(input("Enter number  "+str(  i)))
+#     a.append(num)
+# print(a)
+ ######################################################
+#Nested for loop
+
+# for i in range(1,5):
+#     print()
+#     for j in range(1,i+1):
+#         print(" * ",end="")
+
+
+
+# megna=input("Did megna died or alive : ")
+# if(megna=="died"):
+#     print("suriya meets priya")
+# else:
+#     print("Suriya weds Megna")
+
+#####################################################
+#Function
+
+
+# def findoddoreven():
+#     print("Lets find the number is odd or even")
+#     a=int(input ())
+#     if(a%2==0):
+#         print("The value you entered is EVEN number")
+#     else:
+#         print("The value you entered is ODD number")
+
+# findoddoreven()
+
+# def printrange(r1,r2):
+#     for i in range(r1,r2):
+#         print(i)
+# printrange(8,22)
+
+######################################
+#OOPS
+
+# class goa:
+#     name=""
+#     drink=""
+#     def party(self):
+#         print("Im suresh i like to enjoy by party")
+
+#     def beach(self):
+#         print("Im vinoth i like to enjoy by going beach")    
+# vino=goa()
+# vino.beach()
+# vino.name="me"
+# print(vino.name)
+############################################################
+# class laptop:
+#     def __init__ (self):
+#         print("This is constructer")
+
+#     def display(self):
+#         print("Dispalhya")    
+
+# hp=laptop()
+#hp.display()
+############################################################
+# OOPS example
+
+# class student:
+#     def __init__ (self):
+#         name=""
+#         reg_num=""
+#     def display(self):
+#         print(self.name)
+#         print(self.reg_num)
+
+# vino=student()
+# vino.name="vino"
+# vino.reg_num="4033"
+
+# vino.display()
+
+# class teacher:
+#     def __init__(self,name,reg_num):
+#         self.name=name
+#         self.reg_num=reg_num
+#     def display(self):
+#         print(self.name)
+#         print(self.reg_num)
+
+# t1=teacher("vino",1)
+# t2=teacher("jer",2)        
+# t1.display()
+# t2.display()
+
+# class student:
+#     def add(self,a,b):
+#         print(a+b)
+#     def sub(self,a,b):
+#         print(a-b)
+#     def mul(self,a,b):
+#         print(a*b)
+#     def div(self,a,b):
+#         print(a/b)    
+# raj=student()
+# raj.add(2,2)    
+# raj.div(10,2)
+
+
+# class laptop:
+#     chargertype="C-Type"
+#     #Instant method
+#     def __init__(self):
+#         self.brand=""
+#         self.price=34
+#     def setprice(self,price):
+#         self.price=price
+#     def getprice(self):
+#         print(self.price)
+#        # print(self.chargertype)
+#        #Class method
+#     @classmethod
+#     def changeChargerttype(cls):
+#         cls.changeChargerttype="B_Type"
+#         print(cls.changeChargerttype)
+#         #Static method
+
+#     def info():
+#         print("This is lapotop method")
+        
+# dell=laptop()
+# dell.getprice()
+# dell.setprice(55000)
+# dell.getprice()
+# laptop.changeChargerttype()
+
+#Inheritance
+# class dad():
+#     def dadmobile(self):
+#         print("This is dad,s phone take it")
+
+# class mom():
+#     def mommobile(self):
+#         print("This is mom mobile wannt?")        
+# class son(dad,mom):
+#     def need(self):
+#         print("I need phone")
+
+
+# vino=son()
+# vino.need()
+# vino.dadmobile()
+# vino.mommobile()
+
+# class grandpa():
+#     def phone(self):
+#         print("This is GP phon")
+# class dad(grandpa):
+#     def money(self):
+#         print("Dad money")   
+# class son(dad):
+#     def lap(self):
+#         print("my lap")            
+
+# vin=son()
+# vin.phone()
+
+
+#Super keywords
+# class a():
+#     def __init__(self):
+#         print("A")
+#     def dis(self):
+#         print("This is from A")
+
+# class b(a):
+#     def __init__(self):
+#         super().__init__()
+#         print("B")
+#     def disp(self):
+#         print("This is from B")         
+# obj1 = b()
+#######################################################
+#Polymorphisum
+    #Methos Over riding
+# class animal():
+#     def sound (self):
+#         print("Animal makes sound")
+# class dog(animal):
+#     def sound(self):
+#         print("Dog barks!")    
+# d1=dog()
+# d1.sound()
+#######################################################
+
+# class animal():
+#     def sound (self):
+#         print("Animal makes sound")
+# class dog(animal):
+#     def sound(self):
+#         print("Dog barks!") 
+
+# class birds(animal):
+#     def sound(self):
+#         print("Birds sing!")           
+# d2=birds()
+# d2.sound()
+####################################################################3
+# class shape():
+#     def area(self):
+#         return(0)
+# class rectangle(shape):
+#     def area(self):
+#         l=10
+#         b=5
+#         print("Area of rectangle:",l*b)
+# rec_area=rectangle()
+# rec_area.area()       
+
+
+# class person():
+#     def __init__(self,name,age):
+#         self.name=name
+#         self.age=age
+# class student(person):
+#     def __init__(self, name,age,grade):
+#         super().__init__(name,age)
+#         self.grade=grade
+#     def display(self):
+        
+#         print(self.name,self.age,self.grade)
+# s1=student("john","20","A")
+# s1.display()         
+
+# class employee():
+#     def __init__(self,name,salary):
+#         self.name=name
+#         self.salary=salary
+# class manager(employee):
+#     def __init__(self, name,salary,department):
+#         super().__init__(name,salary)
+#         self.department=department
+#     def display(self):
+#         print(self.name,self.salary,self.department)    
+        
+
+# m1=manager("Vi","10K","IT")
+# m1.display()
+###################################################################
+#Encapsulation
+# if we use __before the function name its private we can not access it out of class
+#private method
+# class company():
+#     def __companyname(self):
+#         print("Google")
+# g1=company()
+# g1.companyname()        
+#private variable
+# class company():
+#     def __init__ (self):
+#         self.__companyname="Google"
+#     # def company(self):
+#     #     print(self.__companyname)
+
+# g1=company()
+# print(g1.companyname)
+# class company():
+#     def __init__(self):
+#         self.__name="Google"
+#     def acess(self):
+#         print(self.__name)
+# d2=company()
+# d2.acess()      
+#Exception handling
+# try:
+#     a=input() 
+#     b= int(input())
+#     print(c)
+# except ValueError as e:
+#     print("Some thing error",e)
+# except TypeError as a:
+#     print("Type error",a) 
+# except NameError as t:
+#     print("Na,e error",t)      
+#############################################################
+
+#import numpy as np
+# a=np.array([1,2,3,4])
+# print(a)
+# print(a[[0,2]])
+
+# b=np.array([[1,2,3,4],
+#            [5,6,7,8]])
+# print(b)
+
+#np.random.seed(123)
+
+#print(np.random.randint(0,1))
+
+# a=[0]
+# if 2<5:
+#     print("yes")
+   
+#     print(a)
+#     a.append(a)
+# class Employee:
+#     min_salary=3000
+#     def __init__(self,name,salary=3000):
+#         self.name=name
+#         if salary >= Employee.min_salary:
+#             self.salary = salary
+#         else :
+#             salary = Employee.min_salary
+# # em1=Employee("vino",30000)
+# # print(em1.min_salary)
+# em2=Employee("siv",80000)
+# print(em2.min_salary)
+#We can add value using append coz its mutable
+# num = [1,2,3,4]
+# print(num)
+# num.append(5)
+# print(num)
+# stg = ["26","get","Vino","Java"]
+# print(stg)
+# num.extend(stg)
+# print(num)
+# num.insert(6,"Python")
+# print(num)
+# num.remove("Python")
+# print(num)
+# x = [1,5,8,79,5,12,3]
+# x.sort()
+# print(x)
+# print(min(x))
+# print(max(x))
+# print(len(x))
+# print(sum(x))
+#################################################
+#TUPles
+# tuple1 = "Chennai",
+# print(tuple1)
+# print(type(tuple1))
+
+# tuple2 =("Chennai","Mumbai","Delhi","Banglour")
+# print(tuple2)
+# print(type(tuple2))
+# # We cant able to add value in append coz tuple is inmutable
+# #tuple1.append(6)
+# tuple3 ="Chennai","Mumbai","Delhi","Banglour"
+# print("This is", tuple3)
+# print(type(tuple3))
+# print(tuple3[-2])
+
+# str ="Welcome to python Vinoth class tutorial"
+# print(str.upper())
+# print(str.lower())
+# #To find the index value
+# print(str.find("V"))
+
+# print(str.split(" "))
+
+# print(str.rpartition( "python" ))
+#Dictionary
+# d={1:"vino",2:"Vishwak"}
+# print(d)
+
+# d1 = {"Name":"vino","Age":29,"Desig":"Analyst"}
+# print(d1)
+# d2={"Name":{"First":"Vino","Last":"Kumar"},"Age":26}
+# print(d2)
+# d2["Desg"]="Data"
+# print(d2)
+# d[1]={"First":"Vino","Last":"Sur"}
+# print(d)
+
+
+
+# n=678
+# r=0
+# while(n%10!=0):
+#      c=n%10
+#      r=r*10+c
+#      n//10
+# print(r)
+
+
+#print(678%10)
+
+# num=int(input("Enthe the number :"))
+# if num%2==0:
+#     print("This is Even number")
+
+# l1= [[1,2,3],["a","b","c"]]
+# for i in l1:
+#     for j in i:
+#         print(j,end=" ")
+
+# x= "Hey There. Welcom"
+# for i in x:
+#     if i == ".":
+#         break
+#     print (i)    
+
+# for i in [12,55,1,36,84,6,2,58,4] :
+#     if i<=10:
+#         print(i)
+#     else: print("Enter proper value")
+# for i in range(0,100):
+#     if i %6 ==0:
+#         print(i)
+# from array import *
+# arr = array("i",[])
+# x=int(input("Enter the array"))
+# print("Enter %x number"%x)
+# for i in range(x):
+#     n=int(input())
+#     arr.append(n)
+# print(arr)    
+
+#print(id(1))
+#print(2+3)
+# class person:
+#     def __init__(self) :
+#         self.name="Vino"
+#         self.age=29
+#         self.gender ="M"
+#     def talk(self):
+#         print("My name is : ",self.name)  
+#     def vote(self):
+#         if   self.age<18:
+#             print(self.name,"You are not eligible") 
+#         else:
+#             print(self.name,"You are Eligble")    
+
+# obj=person()
+# obj.talk()
+# obj.vote()
+# "three">"one"
+import os
+print(os.getcwd())

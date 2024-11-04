@@ -712,4 +712,189 @@ for ( i in 1:10){
 
 matrix(1:3,nrow = 2,ncol = 3)
 
+########################################################################3
 
+order_details<- c(10,20,30,NA,50,60)
+names(order_details)<-c("Mon","Tue","Wed","Thu","Fri","Sat")
+print((order_details))
+neworder<-c(5,10)
+upddateorder <- order_details+neworder
+#LEngth of vect
+l<-length(order_details)
+print(order_details[(l-1):1])
+print(order_details[(l-1):2])
+#Extat valu below 30
+
+order_details<30
+order_details[order_details<30]
+#TO omit na
+na.omit(order_details)
+na.omit(order_details<30)
+#Divisible by 3
+order_details%%3==0
+na.omit(order_details%%3==0)
+
+#TO remove na
+sum(order_details)#It show the na valu only
+sum(order_details,na.rm = T)
+mean(order_details,na.rm = T)
+max(order_details,na.rm = T)
+min(order_details,na.rm = T)
+sd(order_details,na.rm = T)
+v<-20:30
+v
+#Function using matrix
+matrix(v,2,3)
+name <- c("Vino","Raja","Siva","Krishna")
+mark <- c(1:9)
+m<-c(name,mark)
+m
+mat<-matrix(m,nrow = 5,ncol = 3,byrow = T)
+mat1<-matrix(30:49,nrow = 4,ncol = 5,byrow = T)
+sub<-c("Tamil","Eng","Math","Science","Soc")
+colnames(mat1)=sub
+rownames(mat1)=name
+mat1
+rownames((mat1))
+colnames(mat1)
+dim(mat1)
+rowsum(mat1)
+rowMeans(mat1)
+max(mat1)
+#######################################################################
+name <- c("Vino","Raja","Siva","Krishna")
+mark <- c(1:4)
+sub<-c("Tamil","Eng","Math","Science")
+
+df<-data.frame(name,sub,mark)
+summary(df)
+str(df)
+df[1,3]
+df["name"]
+
+df$name
+subset(df,subset = mark>2)
+
+author<- data.frame( surname= c("kalki","Vyasa","George","Rowling"),
+                     nationality=c("India","India","US","UK")
+
+)
+books<- data.frame( name=c("kalki","Vyasa","George","Rowling"),
+                    title=c("Ponnin selvan","Mahabaratham","GOT","Harry porter")
+
+)
+
+
+mer<-merge(author,books,by.x = "surname",by.y = "name")
+############################################################################
+#Data viz
+
+plot(ChickWeight)
+library(MASS)
+plot(UScereal$sugars,UScereal$calories)
+title("plot UScereal$sugars,UScereal$calories")
+x<- c(20,50,30,10)
+mar<-c("Vino","krish","Moor","Siva")
+pie(x,mar)
+pie(x,mar,main = "Mark distribute",col = rainbow(x))
+install.packages("plotrix")
+library(plotrix)
+pie3D(x,labels =  mar, main = "Mark",explode = 0.1)
+
+
+################################################################################################
+#Function
+squre <- function(a){
+  for (i in 1:a ) {
+    b<- i^2
+    print(b)
+  }
+}
+squre(6)
+
+nmae <- function(name){
+  print(paste0("Hellao :", name))
+}
+nmae("Vino")
+
+add<-function(num1,num2){
+  print(num1+num2)
+}
+add(10,20)
+add(c(2,3,4),5)
+
+
+amt<-function(x){
+  print(x+x*20/100)
+}
+amt(100)
+
+
+bonus_get <- function(sal,exp) {
+  if(exp>5){
+    bonus_per =10
+  }
+  else {bonus_per = 5}
+
+  bonus = sal*(bonus_per/100)
+  return(bonus)
+
+}
+bonus_get(20000,2)
+
+x <- c(TRUE, FALSE,0, 1, 4) !x
+40-70+10/5
+v <- c(2, 4, "India", "YouTube", 10.5)
+class(v)
+v <- c(3, 4, 5, 6)
+l <- c("e", "v", "j")
+r <- c(v, l)
+print(r)
+x <- 0:3
+as.logical(x)
+list_1 <- list(c("India", "US"), c(10000, 20000))
+names(list_1) <- c("Countries", "Employees")
+print(list_1$India)
+matrix(2:10, nrow = 4, byrow = F)
+l <- matrix(LETTERS[5:10], ncol=2)
+l
+player <- "I play football"
+play <- function(player){ print(player)
+  player <- 'I would like to play basketball'
+  print(player)
+  }
+print(player)
+play(player)
+
+
+discount<-function(item_cost,units) {
+  if(units>55) {
+    discount_per=20 }
+  else{
+    discount_per=14 }
+  total_discount = item_cost*(discount_per/100)
+  return(total_discount) }
+discount(50000,40)
+
+for (i in 2:8) {
+  if (!i %% 3){
+    next }
+  print(i) }
+
+
+wins <- 0
+playoffs <- c()
+while (wins <= 10){
+  if (wins < 5){
+    print("Out from playoffs")
+    playoffs <- c(playoffs, "Out from playoffs") }
+  else { print ("In playoffs")
+    playoffs <- c(playoffs, "In playoffs")
+    break }
+  wins <- wins + 1 }
+Emp_df <- data.frame(name = c("John", "Carry", "Russel", "Finch"),
+                     age = c(45, 34, 28, 50),
+                     weight = c(79, 75, 68, 80))
+Emp_df.name<- arrange(Emp_df, weight)
+print(Emp_df.name)
+ filter(Emp_df,age < 35 | weight <= 79)

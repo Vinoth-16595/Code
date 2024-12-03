@@ -898,3 +898,25 @@ Emp_df <- data.frame(name = c("John", "Carry", "Russel", "Finch"),
 Emp_df.name<- arrange(Emp_df, weight)
 print(Emp_df.name)
  filter(Emp_df,age < 35 | weight <= 79)
+#################################################
+#Add Rows in DF
+a<-mutate(df,df$FLOW_IN-df$FLOW_OUT_REL)
+typeof(df)
+df[1,3]
+nrow(df)
+length(df)
+class(df)
+df1<-data.frame(DateTime="2022-11-11 21:12:00",solangpc="NA",AVG_ROP_FT_HR="16.77139",
+                BIT_DEPTH="8757.416",
+                BLOCK_POS="8.405858",
+                FLOW_IN= "907.9405",
+                FLOW_OUT_REL="8.254009",
+                GAINLOSS= "-31.96413",
+                HOOKLOAD_MAX="207.5564",
+                STP_PRS_1= "3115.166",
+                TD_SPEED="161.3170",
+                TD_TORQUE="11333.791",
+                TOT_DPT_MD="8757.416",
+                WOB="14.9928001")
+df2<-rbind(df,df1)
+nrow(df2)
